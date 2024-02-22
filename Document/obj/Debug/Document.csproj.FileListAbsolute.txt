@@ -1,0 +1,10 @@
+C:\Users\Danilo Silva\source\repos\Document\Document\bin\Debug\Document.exe.config
+C:\Users\Danilo Silva\source\repos\Document\Document\bin\Debug\Document.exe
+C:\Users\Danilo Silva\source\repos\Document\Document\bin\Debug\Document.pdb
+C:\Users\Danilo Silva\source\repos\Document\Document\obj\Debug\Document.csproj.AssemblyReference.cache
+C:\Users\Danilo Silva\source\repos\Document\Document\obj\Debug\Document.Form1.resources
+C:\Users\Danilo Silva\source\repos\Document\Document\obj\Debug\Document.Properties.Resources.resources
+C:\Users\Danilo Silva\source\repos\Document\Document\obj\Debug\Document.csproj.GenerateResource.cache
+C:\Users\Danilo Silva\source\repos\Document\Document\obj\Debug\Document.csproj.CoreCompileInputs.cache
+C:\Users\Danilo Silva\source\repos\Document\Document\obj\Debug\Document.exe
+C:\Users\Danilo Silva\source\repos\Document\Document\obj\Debug\Document.pdb

@@ -8,18 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Document.Form1;
 
 namespace Document
 {
     public partial class Form1 : Form
     {
 
-   
+        private Stack<Erro> erros = new Stack<Erro>();
         public Form1()
         {
             InitializeComponent();
-            InitializeView();
-           
+            InitializeView();        
         }
 
         private void InitializeView()
@@ -38,7 +38,7 @@ namespace Document
                 saveFileDialog1.Title = "Save text file";
                 saveFileDialog1.ShowDialog();
 
-                // Se o user pressionar OK
+                // Se o usuário pressionar OK
                 if (saveFileDialog1.FileName != "")
                 {
                     // Cria um StreamWriter para escrever no arquivo
@@ -54,15 +54,12 @@ namespace Document
             }
             catch (Exception ex)
             {
-              
-                RegisterExcecao(ex);
-                MessageBox.Show("Ocorreu um erro ao exportar as informações.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                erros.Push(new Erro(ex.Message, DateTime.Now));
             }
         }
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-
             try
             {
                 //Abre uma janela de dialogo para selecionar o arquivo
@@ -71,10 +68,9 @@ namespace Document
                 openFileDialog1.Title = "Select text file";
                 openFileDialog1.ShowDialog();
 
-                //Se o user pressionar OK
+                //Se o usuário pressionar OK
                 if (openFileDialog1.FileName != "")
                 {
-
                     listView1.Items.Clear();
                     //Cria um StreamReader para ler o arquivo
                     using (StreamReader sr = new StreamReader(openFileDialog1.FileName))
@@ -91,9 +87,7 @@ namespace Document
             }
             catch (Exception ex)
             {
-               
-                RegisterExcecao(ex);
-                MessageBox.Show("Ocorreu um erro ao importar as informações.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                erros.Push(new Erro(ex.Message, DateTime.Now));
             }
         }
 
@@ -110,15 +104,27 @@ namespace Document
                 listView1.Items.RemoveAt(listView1.Items.Count - 1);
         }
 
-        private void RegisterExcecao(Exception ex)
+        private void btnErros_Click(object sender, EventArgs e)
         {
-            string logFilePath = "Error.log.txt";
-            using (StreamWriter sw = File.AppendText(logFilePath)) 
+            StringBuilder sb = new StringBuilder();
+            foreach (Erro erro in erros)
             {
-                sw.WriteLine($"[{DateTime.Now} {ex.GetType()}: {ex.Message}]");
-                sw.WriteLine($"StackTrace: {ex.StackTrace}");
-                sw.WriteLine();
+                sb.AppendLine($"[{erro.Horario}] {erro.Mensagem}");
+            }
+            MessageBox.Show(sb.ToString(), "Error Log", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+ }
+
+        public class Erro
+        {
+            public string Mensagem { get; set; }
+            public DateTime Horario { get; set; }
+
+            public Erro(string mensagem, DateTime horario)
+            {
+                Mensagem = mensagem;
+                Horario = horario;
             }
         }
     }
-}
+

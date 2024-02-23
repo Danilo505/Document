@@ -33,7 +33,7 @@
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
-            this.Load = new System.Windows.Forms.Button();
+            this.btnErros = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -87,14 +87,15 @@
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
-            // Load
+            // btnErros
             // 
-            this.Load.Location = new System.Drawing.Point(671, 391);
-            this.Load.Name = "Load";
-            this.Load.Size = new System.Drawing.Size(85, 34);
-            this.Load.TabIndex = 4;
-            this.Load.Text = "To save";
-            this.Load.UseVisualStyleBackColor = true;
+            this.btnErros.Location = new System.Drawing.Point(631, 391);
+            this.btnErros.Name = "btnErros";
+            this.btnErros.Size = new System.Drawing.Size(125, 34);
+            this.btnErros.TabIndex = 4;
+            this.btnErros.Text = "ErrorMessages";
+            this.btnErros.UseVisualStyleBackColor = true;
+            this.btnErros.Click += new System.EventHandler(this.btnErros_Click);
             // 
             // Form1
             // 
@@ -102,7 +103,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Indigo;
             this.ClientSize = new System.Drawing.Size(912, 556);
-            this.Controls.Add(this.Load);
+            this.Controls.Add(this.btnErros);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnRemove);
@@ -121,7 +122,7 @@
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnImport;
-        private System.Windows.Forms.Button Load;
+        private System.Windows.Forms.Button btnErros;
     }
 }
 
